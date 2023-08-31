@@ -68,6 +68,9 @@ jobs:
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "gevinkarunarathne@gmail.com"
+          git add ${{ inputs.working_dir }}/pom.xml
           git add ${{ inputs.working_dir }}/ballerina/pom.xml
-          git commit -m " Added Ballerina pommmm"
+          git add ${{ inputs.working_dir }}/compiler-plugin/pom.xml
+          git add ${{ inputs.working_dir }}/native/pom.xml
+          git commit -m " Added All pommmm"
           git push origin main
