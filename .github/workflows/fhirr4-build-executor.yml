@@ -45,15 +45,15 @@ jobs:
               </servers>
             </settings>' > ~/.m2/settings.xml
 
-      - name: Run maven build
-        run: |
-         mvn clean install -f fhirr4
+      # - name: Run maven build
+      #   run: |
+      #    mvn clean install -f fhirr4
 
       - name: Update version in POM
         if: ${{ inputs.bal_central_environment == 'PROD' }}
         id: increment_patch_version
         run: |
-          cat ${{ inputs.working_dir }}/pom.xml
+          cat ${{ inputs.working_dir }}/ballerina/pom.xml
           # echo "${{ github.actor }}"
           # CURRENT_VERSION=$(grep -Po -m 1 '(?<=<version>)[\d.]+' $GITHUB_WORKSPACE/pom.xml)
           # IFS='.' read -ra VERSION_PARTS <<< "$CURRENT_VERSION"
